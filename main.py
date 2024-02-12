@@ -2,17 +2,20 @@ import base64
 import requests
 import json
 
+
 # Import credentials
 from credentials import credentials
+
 
 # ERRORS
 class FailedAuthentication(Exception):
     pass
 
-# SPOTIFY
 
+# SPOTIFY
 CLIENT_ID_SPOTIFY = credentials.get('CLIENT_ID_SPOTIFY')
 CLIENT_SECRET_SPOTIFY = credentials.get('CLIENT_SECRET_SPOTIFY')
+
 
 # Get spotify api token
 def get_spotify_token():
@@ -27,6 +30,7 @@ def get_spotify_token():
     }
 
     return requests.post(auth_options['url'], data=auth_options['form'], headers=auth_options['headers']).json()['access_token']
+
 
 # Get playlist tracks
 def get_playlist_tracks(playlist_id, spotify_token):
@@ -50,6 +54,7 @@ def get_playlist_tracks(playlist_id, spotify_token):
     # Return the list of tracks
     return tracks
 
+
 # YOUTUBE
 API_KEY_YOUTUBE = credentials.get('API_KEY_YOUTUBE')
 CLIENT_ID_YOUTUBE = credentials.get('CLIENT_ID_YOUTUBE')
@@ -59,7 +64,6 @@ REDIRECT_URI_YOUTUBE = 'http://localhost:3001'
 # AUTHORIZATION URL
 AUTHORIZATION_BASE_URL = 'https://accounts.google.com/o/oauth2/auth'
 TOKEN_URL = 'https://accounts.google.com/o/oauth2/token'
-
 RESPONSE_TYPE = 'code'
 SCOPE = 'https://www.googleapis.com/auth/youtube'
 
@@ -123,11 +127,8 @@ def create_youtube_playlist(access_token):
     }
 
     res = requests.post(create_pl['url'], headers=create_pl['headers'], data=json.dumps(body))
-    print(res)
-    print(res.json())
 
     return res.json()['id']
-
 
 
 # Find the equivalent track in youtube
@@ -142,6 +143,7 @@ def find_track(track, access_token):
     res = requests.get(search_track['url'], headers=search_track['headers'])
     
     return res.json()['items'][0]['id']['videoId']
+
 
 # Add track to youtube playlist
 def add_track_to_playlist(track, playlist_id, access_token):
@@ -165,8 +167,6 @@ def add_track_to_playlist(track, playlist_id, access_token):
     }
 
     res = requests.post(add_track['url'], headers=add_track['headers'], data=json.dumps(body))
-
-    print(res.json())
 
 
 def transfer_playlist():
@@ -193,6 +193,7 @@ def transfer_playlist():
         add_track_to_playlist(track, playlist_id, access_token)
 
     print('Playlist transfer done!')
+
 
 # Main function
 if __name__ == '__main__':
