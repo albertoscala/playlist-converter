@@ -4,6 +4,16 @@ Playlist Converter is an all-in-one solution for effortlessly transforming your 
 
 Originally made to help a friend migrate from Spotify to YouTube Music without having to manually re-create their favourite playlists.
 
+# Table of Contents
+- [Playlist converter](#playlist-converter)
+- [Table of Contents](#table-of-contents)
+  - [Installation](#installation)
+  - [Configuration](#configuration)
+    - [Spotify API configuration](#spotify-api-configuration)
+    - [YouTube/Google API Configuration](#youtubegoogle-api-configuration)
+  - [Usage](#usage)
+  - [License](#license)
+
 ## Installation
 
 To use this project, you will need to first clone the repository to your local machine. Using git, you can do this by running the following command:
