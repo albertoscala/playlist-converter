@@ -32,7 +32,20 @@ Or you can use `python -m venv .` to create a virtual environment in the current
 
 ## Configuration
 
+Before diving into the complex world of APIs, we will need to understand what we need and where we have to put it in order to make the project work.
+
+The file **ONLY** file you have to modify is the `credentials.py` file. This file contains the various Spotify and YouTube/Google API keys, credentials and secret credentials. 
+
 ### Spotify API configuration
+
+The first part of the configuration is accessing the Spotify API. To do this, you will need to create a Spotify Developer account and create a new application. Once you have done this, you will be given a `client_id` and a `client_secret`. You will need to put these into the `credentials.py` file.
+
+```python
+'CLIENT_ID_SPOTIFY':        'your_spotify_client_id_here',
+'CLIENT_SECRET_SPOTIFY':    'your_spotify_client_secret_here',
+```
+
+NOTE: While you are creating the app, it will ask you to put an URI, just pust `http://localhost:3000` and it will work. We are not using a redirect URI, so it doesn't matter what you put there.
 
 ### YouTube/Google API Configuration
 
