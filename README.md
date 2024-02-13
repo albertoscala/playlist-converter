@@ -81,6 +81,8 @@ Now let's create the credentials. Go to the credentials section and create a new
 
 Now we will need to create the OAuth 2.0 credentials. Before creating the actual credentials we need to create the OAuth consent screen. Go to the OAuth consent screen section and create a new consent screen. Once you have done this, you will need to fill in the required information.
 
+**NOTE:** Do not forget to add your google account email in the test users section. If you don't do this, you won't be able to authenticate with your google account.
+
 As we did with the Spotify API, when they will request you the URI just put the same as spotify (NOTE: if you put something different, just because you feel alternative, it won't change anything).
 
 Now we can go to the credentials section and create a new OAuth 2.0 client ID. Once you have done this, you will be given a `client_id` and a `client_secret`. You will need to put these into the `credentials.py` file.
